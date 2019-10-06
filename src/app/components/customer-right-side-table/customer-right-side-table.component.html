@@ -5,7 +5,7 @@
       <td mat-cell *matCellDef="let element"> {{element.model}} </td>
     </ng-container>
     <ng-container matColumnDef="ram">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header class="mat-elevation-z8-table" style="width: 15%"> RAM </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="mat-elevation-z8-table " style="width: 15%"> RAM </th>
       <td mat-cell *matCellDef="let element"> {{element.ram.memory}} {{element.ram.unit}}</td>
     </ng-container>
     <ng-container matColumnDef="hdd">
@@ -22,6 +22,8 @@
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
   </table>
+  <app-customer-server-empty [dataLength]="serverTabledata ? serverTabledata.length : null"></app-customer-server-empty>
   <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
 </div>

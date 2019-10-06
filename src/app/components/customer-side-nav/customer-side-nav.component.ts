@@ -14,6 +14,7 @@ import {
   FormControl,
   FormBuilder
 } from '@angular/forms';
+import { Observable } from 'rxjs/internal/Observable';
 
 
 @Component({
@@ -23,7 +24,7 @@ import {
   encapsulation: ViewEncapsulation.None,
 })
 export class CustomerSideNavComponent implements OnInit {
-
+  serverTabledata$: Observable<CustomerService[]> = null;
   myform: FormGroup;
   min1 = 0;
   max1 = 72000;

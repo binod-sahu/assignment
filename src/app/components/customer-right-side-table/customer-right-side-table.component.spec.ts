@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CustomerRightSideTableComponent } from './customer-right-side-table.component';
+import { CUSTOM_ELEMENTS_SCHEMA,  NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('CustomerRightSideTableComponent', () => {
   let component: CustomerRightSideTableComponent;
@@ -8,7 +8,8 @@ describe('CustomerRightSideTableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CustomerRightSideTableComponent ]
+      declarations: [ CustomerRightSideTableComponent ],
+      schemas:  [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));
