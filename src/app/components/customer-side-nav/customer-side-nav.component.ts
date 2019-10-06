@@ -1,11 +1,11 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { CustomerService } from 'src/app/services/customer-service';
 import {
   Customer,
   HDDs,
   Hddtype,
   checkboxContentType,
-  checkboxContent
+  checkboxContent, Servers
 } from 'src/app/model/customer';
 import { removeDuplicates } from '../../util/util';
 
@@ -22,12 +22,14 @@ export class CustomerSideNavComponent implements OnInit {
   step = 250;
   stepRange = [0, 72000];
   serverData: Customer;
+  serverTabledata: Servers[];
   HDDs: Hddtype[] = HDDs;
   ramCheckboxContent: checkboxContentType[] = checkboxContent;
   locationDropdown: string | string[];
 
   constructor(
-    public restApi: CustomerService
+    public restApi: CustomerService,
+    private cd: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
@@ -37,9 +39,9 @@ export class CustomerSideNavComponent implements OnInit {
   loadCustomer() {
     this.restApi.getCustomer().subscribe((data: Customer) => {
       this.serverData = data;
-      console.log(this.serverData.servers);
+      this.serverTabledata = data.servers;
+      this.cd.markForCheck();
       this.locationDropdown = removeDuplicates(this.serverData.servers.map(location => { return location.location }));
-      console.log(this.locationDropdown);
     });
   }
   rangeChanged(event) {
@@ -47,7 +49,7 @@ export class CustomerSideNavComponent implements OnInit {
     console.log(event[1]);
   }
   valueChange() {
-    console.log(this.ramCheckboxContent.filter(x => x.checked === true).map(x => x.name).join(','));
+    console.log(this.ramCheckboxContent.filter(x => x.checked === true).map(x => x.value).join(','));
   }
   locationSelection(event){
     console.error(event.value); 

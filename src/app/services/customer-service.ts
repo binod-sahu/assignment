@@ -12,7 +12,6 @@ export class CustomerService {
 
   endpointURL:string = 'http://assignment.ut3.nl:4300/api/servers';
   constructor(private httpClient: HttpClient) { }
-
   getFilteredCustomerList(searchParams){
       const httpOptions = {
           params: new HttpParams().set("storageMin", searchParams.storageMin)
