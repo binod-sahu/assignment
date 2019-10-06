@@ -1,8 +1,19 @@
 :host {
     width: 96%;
     .mat-elevation-z8 {
-        table {
-            width: 100%;
+        .mat-table {
+            width: 100%; 
+            .mat-elevation-z8-table {
+                background: #999;
+                font-size: 14px;
+                color: #FFF;
+                font-family: tahoma;
+                font-weight: bold;
+            }  
+            td {
+                font-size: 13px;
+                font-family: tahoma;
+            }        
         }
     }
     .mat-accordion {
@@ -14,12 +25,11 @@
                         padding-bottom: 15px;
                     }
                     .mat-checkbox-inner-container {
-                        width: 25px;
-                        height: 25px;
+                        width: 22px;
+                        height: 22px;
                     }
                 }
             }
         }
-    }
-    
+    }    
 }

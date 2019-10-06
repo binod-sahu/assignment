@@ -8,6 +8,7 @@ import {
   checkboxContent, Servers
 } from 'src/app/model/customer';
 import { removeDuplicates } from '../../util/util';
+import { apiParam } from '../../model/param';
 
 @Component({
   selector: 'app-customer-side-nav',
@@ -26,6 +27,18 @@ export class CustomerSideNavComponent implements OnInit {
   HDDs: Hddtype[] = HDDs;
   ramCheckboxContent: checkboxContentType[] = checkboxContent;
   locationDropdown: string | string[];
+  minRangeParam: string;
+  maxRangeParam: string;
+  ramParam:string;
+  hddParam:string;
+  locationParam:string;
+  apiParams: apiParam = {
+    storageMin: '0',
+    storageMax: '72000',
+    ram:'',
+    hdd:'',
+    location:''
+  };
 
   constructor(
     public restApi: CustomerService,
@@ -45,17 +58,19 @@ export class CustomerSideNavComponent implements OnInit {
     });
   }
   rangeChanged(event) {
-    console.log(event[0]);
-    console.log(event[1]);
+    this.minRangeParam = event[0].toString();
+    this.maxRangeParam = event[1].toString();
   }
   valueChange() {
-    console.log(this.ramCheckboxContent.filter(x => x.checked === true).map(x => x.value).join(','));
+    this.ramParam = this.ramCheckboxContent.filter(x => x.checked === true).map(x => x.value).join(',');
+    console.log(this.ramParam);
   }
   locationSelection(event){
-    console.error(event.value); 
+    this.locationParam = event.value;
+    console.error(this.locationParam); 
    }
   hddSelection(event){
-    console.error(event.value); 
+    this.hddParam = event.value;
+    console.error(this.hddParam); 
    }
-
 }
