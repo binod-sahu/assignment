@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CustomerRightSideTableComponent } from './customer-right-side-table.component';
 import { CUSTOM_ELEMENTS_SCHEMA,  NO_ERRORS_SCHEMA } from '@angular/core';
+import {MatTableModule} from '@angular/material/table';
 
 describe('CustomerRightSideTableComponent', () => {
   let component: CustomerRightSideTableComponent;
@@ -8,6 +9,9 @@ describe('CustomerRightSideTableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        MatTableModule
+      ],
       declarations: [ CustomerRightSideTableComponent ],
       schemas:  [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
     })
@@ -20,7 +24,7 @@ describe('CustomerRightSideTableComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the table component', () => {
     expect(component).toBeTruthy();
   });
 });

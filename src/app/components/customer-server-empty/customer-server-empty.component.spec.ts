@@ -19,7 +19,7 @@ describe('CustomerServerEmptyComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the server empty component', () => {
     expect(component).toBeTruthy();
   });
 });

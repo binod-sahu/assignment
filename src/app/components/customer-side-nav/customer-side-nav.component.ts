@@ -11,8 +11,7 @@ import { removeDuplicates } from '../../util/util';
 import { apiParam } from '../../model/param';
 import {
   FormGroup,
-  FormControl,
-  FormBuilder
+  FormControl
 } from '@angular/forms';
 import { Observable } from 'rxjs/internal/Observable';
 

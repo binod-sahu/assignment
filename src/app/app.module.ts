@@ -1,10 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import { HeaderComponent } from './components/header/header.component';
@@ -21,6 +21,7 @@ import { CustomerRightSideTableComponent } from './components/customer-right-sid
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CustomerServerEmptyComponent } from './components/customer-server-empty/customer-server-empty.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     CustomerServerComponent,
     CustomerSideNavComponent,
-    CustomerRightSideTableComponent
+    CustomerRightSideTableComponent,
+    CustomerServerEmptyComponent
   ],
   imports: [
     BrowserModule,
