@@ -3,15 +3,21 @@
     .mat-elevation-z8 {
         .mat-table {
             width: 100%; 
+                tr.mat-header-row{
+                    height: 40px;
+                }
+               tr.mat-row{
+                height: 40px;
+               }
             .mat-elevation-z8-table {
                 background: #999;
-                font-size: 14px;
+                font-size: 12px;
                 color: #FFF;
                 font-family: tahoma;
                 font-weight: bold;
             }  
             td {
-                font-size: 13px;
+                font-size: 12px;
                 font-family: tahoma;
             }        
         }
