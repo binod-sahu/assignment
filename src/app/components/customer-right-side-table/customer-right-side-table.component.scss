@@ -1,0 +1,25 @@
+:host {
+    width: 96%;
+    .mat-elevation-z8 {
+        table {
+            width: 100%;
+        }
+    }
+    .mat-accordion {
+        .mat-expansion-panel-body {
+            .example-section {
+                mat-checkbox {
+                    .mat-checkbox-layout {
+                        padding-right: 15px;
+                        padding-bottom: 15px;
+                    }
+                    .mat-checkbox-inner-container {
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
+            }
+        }
+    }
+    
+}

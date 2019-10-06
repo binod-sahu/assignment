@@ -1,0 +1,59 @@
+<div class="customer-container">
+    <div class="customer-search-container">
+
+        <div class="heading">
+            Storage
+        </div>
+        <div class="search-content">
+            <range-slider [min]="min1" [max]="max1" [step]="step" (onRangeChange)="rangeChanged($event)"
+                [(ngModel)]="stepRange" [highlightClass]="'stephighlightClass'" [barClass]="'stepBarClass'"
+                [sliderClass]="'stepSliderClass'">
+            </range-slider>
+        </div>
+        <div class="heading">
+            RAM
+        </div>
+        <div class="search-content check-box-container">
+            <div *ngFor="let ramsize of ramCheckboxContent">
+                <mat-checkbox [checked]="ramsize.checked" 
+                    [(ngModel)]="ramsize.checked" 
+                    value="{{ramsize.value}}" (change)="valueChange()">
+                    {{ ramsize.name }}
+                </mat-checkbox>
+            </div>
+        </div>
+        <div class="heading">
+            HDD
+        </div>
+        <div class="search-content">
+            <mat-form-field>
+                <mat-label>Select</mat-label>
+                <mat-select #hdd (selectionChange)="hddSelection($event)">
+                    <mat-option *ngFor="let HDD of HDDs" [value]="HDD.value">
+                        {{HDD.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="heading">
+            Location
+        </div>
+        <div class="search-content">
+            <mat-form-field>
+                <mat-label>Select</mat-label>
+                <mat-select #serverLocation (selectionChange)="locationSelection($event)">
+                    <mat-option *ngFor="let location of locationDropdown" [value]="location">
+                        {{ location  | slice:0:-6 }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <br>
+            <div class="example-button-row">
+                <button mat-raised-button>Apply</button>
+            </div>
+        </div>
+    </div>
+    <div class="customer-table-container">
+        <app-customer-right-side-table></app-customer-right-side-table>
+    </div>
+</div>
