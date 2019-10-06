@@ -17,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { CustomerRightSideTableComponent } from './components/customer-right-side-table/customer-right-side-table.component';
+import { CustomerRightSideTableComponent } from './components/customer-table/customer-table.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { ReactiveFormsModule } from '@angular/forms';

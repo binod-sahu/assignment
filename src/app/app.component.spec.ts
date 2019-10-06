@@ -5,7 +5,7 @@ import { CustomerServerComponent } from './components/customer-server/customer-s
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CustomerServerEmptyComponent } from './components/customer-server-empty/customer-server-empty.component';
-import { CustomerRightSideTableComponent } from './components/customer-right-side-table/customer-right-side-table.component';
+import { CustomerRightSideTableComponent } from './components/customer-table/customer-table.component';
 import { CustomerSideNavComponent } from './components/customer-side-nav/customer-side-nav.component';
 import { MatTableModule } from '@angular/material';
 import { MatSortModule } from '@angular/material/sort';

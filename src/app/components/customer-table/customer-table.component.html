@@ -1,0 +1,29 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="model">
+      <th mat-header-cell *matHeaderCellDef class="mat-elevation-z8-table" style="width: 30%"> Model </th>
+      <td mat-cell *matCellDef="let element"> {{element.model}} </td>
+    </ng-container>
+    <ng-container matColumnDef="ram">
+      <th mat-header-cell *matHeaderCellDef class="mat-elevation-z8-table " style="width: 15%"> RAM </th>
+      <td mat-cell *matCellDef="let element"> {{element.ram.memory}} {{element.ram.unit}}</td>
+    </ng-container>
+    <ng-container matColumnDef="hdd">
+      <th mat-header-cell *matHeaderCellDef class="mat-elevation-z8-table" style="width: 15%"> HDD </th>
+      <td mat-cell *matCellDef="let element"> {{element.hdd.count}}{{element.hdd.unit}} </td>
+    </ng-container>
+    <ng-container matColumnDef="location">
+      <th mat-header-cell *matHeaderCellDef class="mat-elevation-z8-table" style="width: 30%"> Location </th>
+      <td mat-cell *matCellDef="let element"> {{element.location | slice:0:-6}} </td>
+    </ng-container>
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef class="mat-elevation-z8-table" style="width:20%"> Price </th>
+      <td mat-cell *matCellDef="let element"> {{element.price.currencySymbol}}{{element.price.amountCents}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+  </table>
+  <app-customer-server-empty [dataLength]="serverTabledata ? serverTabledata.length : null"></app-customer-server-empty>
+  <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
+</div>

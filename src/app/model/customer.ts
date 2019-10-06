@@ -11,13 +11,13 @@ export interface Servers {
 }
 
 export interface Ram {
-    memory: number;
+    memory: string;
     unit: string;
     type: string;
 }
 export interface Hdd {
-    memory: number;
-    count: number;
+    memory: string;
+    count: string;
     unit: string;
     type: string;
 }
