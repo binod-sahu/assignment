@@ -20,6 +20,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { CustomerRightSideTableComponent } from './components/customer-right-side-table/customer-right-side-table.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     BrowserModule,
     AppRoutingModule, FormsModule, MatSliderModule, BrowserAnimationsModule, MatCheckboxModule, MatRadioModule, 
     MatExpansionModule, RangeSliderModule, HttpClientModule, MatSelectModule, MatTableModule, MatPaginatorModule, MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,6 +9,12 @@ import {
 } from 'src/app/model/customer';
 import { removeDuplicates } from '../../util/util';
 import { apiParam } from '../../model/param';
+import {
+  FormGroup,
+  FormControl,
+  FormBuilder
+} from '@angular/forms';
+
 
 @Component({
   selector: 'app-customer-side-nav',
@@ -18,6 +24,7 @@ import { apiParam } from '../../model/param';
 })
 export class CustomerSideNavComponent implements OnInit {
 
+  myform: FormGroup;
   min1 = 0;
   max1 = 72000;
   step = 250;
@@ -27,18 +34,15 @@ export class CustomerSideNavComponent implements OnInit {
   HDDs: Hddtype[] = HDDs;
   ramCheckboxContent: checkboxContentType[] = checkboxContent;
   locationDropdown: string | string[];
-  minRangeParam: string;
-  maxRangeParam: string;
-  ramParam:string;
-  hddParam:string;
-  locationParam:string;
+  ramParam: string;
   apiParams: apiParam = {
     storageMin: '0',
     storageMax: '72000',
-    ram:'',
-    hdd:'',
-    location:''
+    ram: '',
+    hdd: '',
+    location: ''
   };
+
 
   constructor(
     public restApi: CustomerService,
@@ -47,6 +51,12 @@ export class CustomerSideNavComponent implements OnInit {
 
   ngOnInit() {
     this.loadCustomer();
+    this.myform = new FormGroup({
+      range: new FormControl(''),
+      ram: new FormControl(''),
+      hdd: new FormControl(''),
+      location: new FormControl(''),
+    });
   }
 
   loadCustomer() {
@@ -57,20 +67,21 @@ export class CustomerSideNavComponent implements OnInit {
       this.locationDropdown = removeDuplicates(this.serverData.servers.map(location => { return location.location }));
     });
   }
-  rangeChanged(event) {
-    this.minRangeParam = event[0].toString();
-    this.maxRangeParam = event[1].toString();
-  }
   valueChange() {
     this.ramParam = this.ramCheckboxContent.filter(x => x.checked === true).map(x => x.value).join(',');
-    console.log(this.ramParam);
   }
-  locationSelection(event){
-    this.locationParam = event.value;
-    console.error(this.locationParam); 
-   }
-  hddSelection(event){
-    this.hddParam = event.value;
-    console.error(this.hddParam); 
-   }
+  onSubmit(UserLogin) {
+    this.apiParams = {
+      storageMin: this.myform.value.range[0],
+      storageMax: this.myform.value.range[1],
+      ram: this.ramParam,
+      hdd: this.myform.value.hdd,
+      location: this.myform.value.location
+    }
+    this.restApi.getFilteredCustomerList(this.apiParams).subscribe((data: Customer) => {
+      this.serverData = data;
+      this.serverTabledata = data.servers;
+      this.cd.markForCheck();
+    });
+  }
 }

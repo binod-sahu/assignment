@@ -4,3 +4,13 @@ export function removeDuplicates(originalArray) {
     })
      return newArray;
 }
+
+export function deleteNullproperties(objwithNullValue) {
+    for (var propName in objwithNullValue) {
+      if (objwithNullValue[propName] === null ||
+        objwithNullValue[propName] === undefined || objwithNullValue[propName] === "") {
+        delete objwithNullValue[propName];
+      }
+    }
+    return objwithNullValue;
+  }
