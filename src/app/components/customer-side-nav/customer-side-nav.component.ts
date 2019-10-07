@@ -35,13 +35,7 @@ export class CustomerSideNavComponent implements OnInit {
   ramCheckboxContent: checkboxContentType[] = checkboxContent;
   locationDropdown: string | string[];
   ramParam: string;
-  apiParams: apiParam = {
-    storageMin: '0',
-    storageMax: '72000',
-    ram: '',
-    hdd: '',
-    location: ''
-  };
+  apiParams: apiParam;
 
 
   constructor(

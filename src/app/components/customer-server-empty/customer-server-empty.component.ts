@@ -6,12 +6,8 @@ import { Component, ChangeDetectionStrategy, Input, OnInit } from '@angular/core
   styleUrls: ['./customer-server-empty.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CustomerServerEmptyComponent implements OnInit {
+export class CustomerServerEmptyComponent {
   @Input() dataLength: number;
   changeDetection: ChangeDetectionStrategy.OnPush
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }
